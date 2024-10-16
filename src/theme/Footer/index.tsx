@@ -137,7 +137,7 @@ function Footer(): JSX.Element | null {
   const isDarkMode = colorMode === 'dark';
 
   return (
-    <footer className={clsx('w-full grid gap-8 px-6 py-[1rem] h-full', 'w-full lg:gap-14 lg:py-[3rem]', `${isDarkMode ? 'bg-[#252526]' : 'bg-transparent'}`)}>
+    <footer className={clsx('w-full grid gap-8 px-6 py-[1rem] h-full', 'w-full lg:gap-14 lg:py-[3rem]', `${isDarkMode ? 'bg-[#1c1c1d]' : 'bg-transparent'}`)}>
       <div className={'mx-auto max-w-[1480px]'}>
         {/* <div className='grid lg:grid-cols-[auto,minmax(0,1fr)] lg:gap-[11.375rem] justify-between'> */}
         <div className='flex lg:flex-row lg:justify-between sm:flex-col sm:justify-center w-full lg:gap-[20rem]'>
@@ -146,8 +146,8 @@ function Footer(): JSX.Element | null {
               <Link href='https://orochi.network/' className='block'>
                 <FooterLogo logo={logo} />
               </Link>
-              <div className='text-10 text-neutral-400 '>
-                The World First Zero-Knowledge Modular Data Availability Layer
+              <div className='text-10 text-neutral-400 max-w-[600px]'>
+                zkDatabase is the world first Verifiable Data Pipeline for any Smart Contract Platforms, dApps and zkApps.
               </div>
             </div>
             <SocialLink isDarkMode={isDarkMode} />
@@ -176,8 +176,8 @@ function Footer(): JSX.Element | null {
             </Link>
           </div>
 
-          <p className='text-sm text-neutral-600 lg:text-base lg:text-neutral-500 pt-5'>
-            © {year} Orochi Network. All rights reserved.
+          <p className='text-sm text-neutral-600 lg:text-base lg:text-neutral-500 pt-5 lining-nums'>
+            © {year} zkDatabase. All rights reserved.
           </p>
         </div>
       </div>
