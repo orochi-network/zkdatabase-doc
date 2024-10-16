@@ -5,6 +5,8 @@
  */
 
 /* You can override the default Infima variables here. */
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
+
 :root {
   --ifm-color-primary: #fd4a35;
   --ifm-color-primary-dark: #fd2f17;
@@ -15,6 +17,7 @@
   --ifm-color-primary-lightest: #fe9b90;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --ifm-font-family-base: Raleway;
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
@@ -31,12 +34,21 @@
 
 .navbar__items--right {
   display: flex;
-  gap: 10px;
+  gap: 20px;
 }
 
-/* .button {
-  background-color: fd4a35
-} */
+.navbar {
+  padding: 15px;
+  height: fit-content;
+}
+
+.navbar__link--active {
+  font-weight: bold;
+}
+
+.navbar__link {
+  margin-left: 20px;
+}
 
 @tailwind base;
 @tailwind components;

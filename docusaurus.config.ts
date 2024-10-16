@@ -94,14 +94,15 @@ const config: Config = {
         },
         {
           to: "https://magical-caravel-b75.notion.site/Orochi-Network-Onboarding-Document-38c050910d2e4da4b92709bc867e790c",
-          label: "Collab",
+          label: "Collaborate",
         },
         {
           // type: "html",
           position: "right",
           label: "Get started",
           to: "https://test-app.zkdatabase.org/",
-          className: "button button--primary button--lg text-white",
+          className:
+            "button button--primary button--lg text-white text-[14px] m-4 font-bold",
           style: { color: "white" },
         },
       ],
@@ -166,9 +167,8 @@ const config: Config = {
       ],
       logo: {
         alt: "zkDatabase Logo",
-        src: "img/orochiLogo.svg",
-        // href: "https://orochi.network/",
-        srcDark: "img/orochiLogoDark.svg",
+        src: "img/zkLogoWithText.svg",
+        srcDark: "img/zkLogoWithTextDark.svg",
         width: 200,
       },
       copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,

@@ -41,7 +41,7 @@ function FooterNavigate() {
         },
         {
           href: 'https://github.com/orochi-network/orochimaru',
-          label: 'Collab',
+          label: 'Collaborate',
         },
       ],
     },
@@ -72,17 +72,17 @@ function FooterNavigate() {
   const isDarkMode = colorMode === 'dark';
 
   return (
-    <div className='grid sm:grid-cols-1 lg:grid-cols-3 gap-y-8 gap-x-2 lg:justify-start sm:justify-center lg:items-start sm:items-center'>
+    <div className='grid sm:grid-cols-1 lg:grid-cols-3 gap-y-8 gap-x-8 lg:justify-start sm:justify-center lg:items-start sm:items-center'>
       {navigate.map((nav, index) => (
         <ul key={'navigate-' + index} className='space-y-2 lg:space-y-4 hover:no-underline'>
-          <div className={`font-medium text-sm uppercase ${isDarkMode ? 'text-neutral-50' : 'text-neutral-500'}`}>{nav.title}</div>
+          <div className={`font-bold text-[13px] small-caps text-wrap uppercase ${isDarkMode ? 'text-neutral-500' : 'text-neutral-500'}`}>{nav.title}</div>
           {nav.links.map((link, indexLink) => (
             <div key={'links-' + indexLink}>
               <Link
                 aria-label={link.label}
                 href={link.href}
                 target='_blank'
-                className={`hover:no-underline block text-start break-words font-semibold ${isDarkMode ? 'text-neutral-500' : 'text-black'}`}
+                className={`hover:no-underline block text-start break-words font-semibold  text-[.875rem] ${isDarkMode ? 'text-neutral-50' : 'text-black'}`}
               >
                 {link.label}
               </Link>
@@ -116,7 +116,7 @@ export function SocialLink({ isDarkMode }) {
   ];
 
   return (
-    <div className='grid auto-cols-max grid-flow-col gap-6 sm:py-10'>
+    <div className='grid auto-cols-max grid-flow-col gap-8 sm:py-10'>
       {socials.map((social, index) => (
         <a href={social.href} key={index} className='block h-6 w-6' target='_blank'>
           {social.icon}
@@ -137,12 +137,13 @@ function Footer(): JSX.Element | null {
   const isDarkMode = colorMode === 'dark';
 
   return (
-    <footer className={clsx('w-full grid gap-8 px-6 py-[5rem]', 'lg:gap-14 lg:py-[6rem]', `${isDarkMode ? 'bg-[#252526]' : 'bg-transparent'}`)}>
-      <div className={`max-w-[1136px] mx-auto`}>
-        <div className='grid lg:grid-cols-[auto,minmax(0,1fr)] lg:gap-[11.375rem]'>
-          <div className='flex flex-col lg:justify-between lg:items-start sm:items-center'>
-            <div className='flex flex-col gap-12 sm:items-center lg:items-start'>
-              <Link href='https://orochi.network/' className='block h-12'>
+    <footer className={clsx('w-full grid gap-8 px-6 py-[1rem] h-full', 'w-full lg:gap-14 lg:py-[3rem]', `${isDarkMode ? 'bg-[#252526]' : 'bg-transparent'}`)}>
+      <div className={'mx-auto max-w-[1480px]'}>
+        {/* <div className='grid lg:grid-cols-[auto,minmax(0,1fr)] lg:gap-[11.375rem] justify-between'> */}
+        <div className='flex lg:flex-row lg:justify-between sm:flex-col sm:justify-center w-full lg:gap-[20rem]'>
+          <div className='flex flex-col lg:justify-between lg:items-start sm:items-center h-full justify-between gap-y-10'>
+            <div className='flex flex-col gap-5 sm:items-center lg:items-start'>
+              <Link href='https://orochi.network/' className='block'>
                 <FooterLogo logo={logo} />
               </Link>
               <div className='text-10 text-neutral-400 '>
@@ -154,7 +155,7 @@ function Footer(): JSX.Element | null {
           <FooterNavigate />
         </div>
 
-        <hr className='m-0 h-[1px] w-full border-none bg-neutral-300' />
+        <hr className={`m-0 h-[1px] w-full border-none ${isDarkMode ? 'bg-neutral-600' : 'bg-neutral-300'}`} />
 
         <div className='flex flex-wrap items-center justify-between gap-8 pt-10 sm:justify-center sm:items-center lg:justify-between'>
           <div className='flex flex-row gap-2 h-fit items-center'>
