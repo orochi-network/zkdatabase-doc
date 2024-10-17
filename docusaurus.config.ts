@@ -68,6 +68,29 @@ const config: Config = {
   themeConfig: {
     // Replace with your project's social card
     image: "img/docusaurus-social-card.jpg",
+    metadata: [
+      { name: "description", content: "Your site description" },
+      { property: "og:title", content: "Your Site Title" },
+      {
+        property: "og:description",
+        content: "A brief description of your site",
+      },
+      {
+        property: "og:image",
+        content: "https://your-site-url.com/img/thumbnail.png",
+      },
+      { property: "og:url", content: "https://your-site-url.com" },
+      { property: "twitter:card", content: "summary_large_image" },
+      { property: "twitter:title", content: "Your Site Title" },
+      {
+        property: "twitter:description",
+        content: "A brief description of your site",
+      },
+      {
+        property: "twitter:image",
+        content: "https://your-site-url.com/img/thumbnail.png",
+      },
+    ],
     navbar: {
       title: "zkDatabase",
       logo: {
@@ -80,12 +103,12 @@ const config: Config = {
           sidebarId: "tutorialSidebar",
           label: "Document",
         },
+        // {
+        //   // to: "/",
+        //   label: "Support",
+        // },
         {
-          to: "/contact",
-          label: "Support",
-        },
-        {
-          to: "https://docs.orochi.network/",
+          to: "https://docs.orochi.network/zkdatabase/chapter",
           label: "Cookbook",
         },
         {
@@ -97,12 +120,11 @@ const config: Config = {
           label: "Collaborate",
         },
         {
-          // type: "html",
           position: "right",
           label: "Get started",
           to: "https://test-app.zkdatabase.org/",
           className:
-            "button button--primary button--lg text-white text-[14px] m-4 font-bold",
+            "button button--primary button--lg text-white text-size-sm font-bold pr-[20px]",
           style: { color: "white" },
         },
       ],
@@ -122,7 +144,7 @@ const config: Config = {
             },
             {
               label: "Cookbook",
-              to: "https://docs.orochi.network/",
+              to: "https://docs.orochi.network/zkdatabase/chapter",
             },
             {
               label: "Get started",
@@ -138,8 +160,8 @@ const config: Config = {
               href: "https://orochi.network/about",
             },
             {
-              label: "Collab",
-              href: "https://orochi.network/ecosystem",
+              label: "Collaborate",
+              href: "https://magical-caravel-b75.notion.site/Orochi-Network-Onboarding-Document-38c050910d2e4da4b92709bc867e790c",
             },
           ],
         },

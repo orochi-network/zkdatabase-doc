@@ -1,5 +1,4 @@
-import HomepageFeatures from '@site/src/components/HomepageFeatures';
-import Layout from '@theme/Layout';
+import { Redirect } from '@docusaurus/router';
 import HomeSvg from '@site/static/img/Blog.svg';
 
 function HomepageHeader() {
@@ -20,11 +19,6 @@ function HomepageHeader() {
 
 export default function Home(): JSX.Element {
   return (
-    <Layout
-      title='Homepage'
-      description="Description will go into a meta tag in <head />">
-        <HomepageHeader />
-        <HomepageFeatures />
-    </Layout>
+    <Redirect to="/docs/intro" />
   );
 }

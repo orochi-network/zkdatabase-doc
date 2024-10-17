@@ -15,7 +15,7 @@ function FooterNavigate() {
       title: 'Developers',
       links: [
         {
-          href: '/',
+          href: '/docs/intro',
           label: 'Homepage',
         },
         {
@@ -23,11 +23,11 @@ function FooterNavigate() {
           label: 'Github',
         },
         {
-          href: 'https://eprint.iacr.org/2024/336',
+          href: 'https://docs.orochi.network/zkdatabase/chapter',
           label: 'Cookbook',
         },
         {
-          href: '/',
+          href: 'https://test-app.zkdatabase.org/',
           label: 'Get started',
         },
       ],
@@ -36,11 +36,11 @@ function FooterNavigate() {
       title: 'Ecosystem',
       links: [
         {
-          href: 'https://github.com/orochi-network/zkDatabase',
+          href: 'https://www.orochi.network/ecosystem',
           label: 'Explore',
         },
         {
-          href: 'https://github.com/orochi-network/orochimaru',
+          href: 'https://magical-caravel-b75.notion.site/Orochi-Network-Onboarding-Document-38c050910d2e4da4b92709bc867e790c',
           label: 'Collaborate',
         },
       ],
@@ -49,7 +49,7 @@ function FooterNavigate() {
       title: 'Resource',
       links: [
         {
-          href: 'https://twitter.com/OrochiNetwork',
+          href: 'https://www.orochi.network/blog',
           label: 'Blog',
         },
         {
@@ -81,7 +81,7 @@ function FooterNavigate() {
               <Link
                 aria-label={link.label}
                 href={link.href}
-                target='_blank'
+                target={link.label === 'Homepage' ? '' : '_blank'}
                 className={`hover:no-underline block text-start break-words font-semibold  text-[.875rem] ${isDarkMode ? 'text-neutral-50' : 'text-black'}`}
               >
                 {link.label}
@@ -98,7 +98,7 @@ export function SocialLink({ isDarkMode }) {
 
   const socials = [
     {
-      href: 'https://twitter.com/OrochiNetwork',
+      href: 'https://x.com/intent/follow?screen_name=zkDatabase',
       icon: <Twitter color={isDarkMode ? '#ffffff' : ''} />,
     },
     {
@@ -106,7 +106,7 @@ export function SocialLink({ isDarkMode }) {
       icon: <Discord color={isDarkMode ? '#ffffff' : ''} />,
     },
     {
-      href: 'https://github.com/orochi-network',
+      href: 'https://github.com/orochi-network/zkDatabase',
       icon: <Github color={isDarkMode ? '#ffffff' : ''} />,
     },
     {
