@@ -39,6 +39,8 @@
 
 .navbar {
   padding: 15px;
+  padding-right: 30px;
+  padding-left: 30px;
   height: fit-content;
 }
 
@@ -48,6 +50,11 @@
 
 .navbar__link {
   margin-left: 20px;
+}
+
+.text-size-sm {
+  font-size: 0.875rem;
+  line-height: 2rem;
 }
 
 @tailwind base;
