@@ -147,7 +147,7 @@ function Footer(): JSX.Element | null {
                 <FooterLogo logo={logo} />
               </Link>
               <div className='text-10 text-neutral-400 max-w-[600px]'>
-                zkDatabase is the world first Verifiable Data Pipeline for any Smart Contract Platforms, dApps and zkApps.
+                zkDatabase is the world first verifiable database for the new internet.
               </div>
             </div>
             <SocialLink isDarkMode={isDarkMode} />
