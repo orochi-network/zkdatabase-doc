@@ -70,25 +70,30 @@ const config: Config = {
     image: "img/docusaurus-social-card.jpg",
     metadata: [
       { name: "description", content: "Your site description" },
-      { property: "og:title", content: "Your Site Title" },
+      { property: "og:title", content: "zkDatabase" },
       {
         property: "og:description",
-        content: "A brief description of your site",
+        content:
+          "zkDatabase is the world first verifiable database for the new internet",
       },
       {
         property: "og:image",
-        content: "https://your-site-url.com/img/thumbnail.png",
+        content: "img/thumbnail.png",
       },
-      { property: "og:url", content: "https://your-site-url.com" },
+      {
+        property: "og:url",
+        content: "https://test-doc.zkdatabase.org/",
+      },
       { property: "twitter:card", content: "summary_large_image" },
-      { property: "twitter:title", content: "Your Site Title" },
+      { property: "twitter:title", content: "zkDatabase" },
       {
         property: "twitter:description",
-        content: "A brief description of your site",
+        content:
+          "zkDatabase is the world first verifiable database for the new internet",
       },
       {
         property: "twitter:image",
-        content: "https://your-site-url.com/img/thumbnail.png",
+        content: "img/thumbnail.png",
       },
     ],
     navbar: {
