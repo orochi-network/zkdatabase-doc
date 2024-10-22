@@ -67,7 +67,7 @@ const config: Config = {
 
   themeConfig: {
     // Replace with your project's social card
-    image: "img/docusaurus-social-card.jpg",
+    image: "img/thumbnail.png",
     metadata: [
       { name: "description", content: "Your site description" },
       { property: "og:title", content: "zkDatabase" },
@@ -79,10 +79,6 @@ const config: Config = {
       {
         property: "og:image",
         content: "img/thumbnail.png",
-      },
-      {
-        property: "og:url",
-        content: "https://test-doc.zkdatabase.org/",
       },
       { property: "twitter:card", content: "summary_large_image" },
       { property: "twitter:title", content: "zkDatabase" },
@@ -108,10 +104,6 @@ const config: Config = {
           sidebarId: "tutorialSidebar",
           label: "Document",
         },
-        // {
-        //   // to: "/",
-        //   label: "Support",
-        // },
         {
           to: "https://docs.orochi.network/zkdatabase/chapter",
           label: "Cookbook",
@@ -178,7 +170,7 @@ const config: Config = {
               href: "https://orochi.network/blog",
             },
             {
-              label: "o1js",
+              label: "npm package",
               href: "https://www.npmjs.com/package/zkdb",
             },
             {
