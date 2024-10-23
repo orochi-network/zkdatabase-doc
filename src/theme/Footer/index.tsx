@@ -54,7 +54,7 @@ function FooterNavigate() {
         },
         {
           href: 'https://www.npmjs.com/package/zkdb',
-          label: 'o1js',
+          label: 'npm package',
         },
         {
           href: 'https://forums.minaprotocol.com/t/draft-mina-data-availability-layer/6150',
