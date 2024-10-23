@@ -15,7 +15,7 @@ function FooterNavigate() {
       title: 'Developers',
       links: [
         {
-          href: '/docs/intro',
+          href: '/intro',
           label: 'Homepage',
         },
         {

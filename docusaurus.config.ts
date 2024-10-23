@@ -91,6 +91,7 @@ const config: Config = {
       {
         docs: {
           sidebarPath: "./sidebars.ts",
+          routeBasePath: "",
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           // editUrl:
@@ -185,7 +186,7 @@ const config: Config = {
           items: [
             {
               label: "Homepage",
-              to: "/docs/intro",
+              to: "/intro",
             },
             {
               label: "Github",
