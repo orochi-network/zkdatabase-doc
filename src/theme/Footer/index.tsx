@@ -160,7 +160,7 @@ function Footer(): JSX.Element | null {
         <div className='flex flex-wrap items-center justify-between gap-8 pt-10 sm:justify-center sm:items-center lg:justify-between'>
           <div className='flex flex-row gap-2 h-fit items-center'>
             <Link 
-              href="" 
+              href="https://www.orochi.network/privacy-policy" 
               target='_blank' 
               className={`font-semibold hover:no-underline ${isDarkMode ? 'text-neutral-500' : 'text-black'}`}
             >
@@ -168,7 +168,7 @@ function Footer(): JSX.Element | null {
             </Link>
             <div className="w-[1px] h-[20px] bg-neutral-400"></div>
             <Link 
-              href="" 
+              href="https://www.orochi.network/term-of-service" 
               target='_blank' 
               className={`font-semibold hover:no-underline ${isDarkMode ? 'text-neutral-500' : 'text-black'}`}
             >
