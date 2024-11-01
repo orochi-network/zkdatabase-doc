@@ -172,7 +172,7 @@ const config: Config = {
         {
           position: "right",
           label: "Get started",
-          to: "https://test-app.zkdatabase.org/",
+          to: "/",
           className:
             "button button--primary button--lg text-white text-size-sm font-bold pr-[20px]",
           style: { color: "white" },
