@@ -6,14 +6,14 @@ sidebar_position: 1
 
 The zkDatabase library provides methods for retrieving documents from a specified collection within a database. These methods allow you to fetch either a single document or multiple documents based on query parameters. **Note that these methods will only work if the user has the necessary permissions to access the specified collection or document.**
 
-### **Fetching a Single Document: `fetchOne`**
+### **Fetching a Single Document: `findOne`**
 
-The `fetchOne` method retrieves a single document from the specified collection that matches the provided query criteria.
+The `findOne` method retrieves a single document from the specified collection that matches the provided query criteria.
 
 #### **Syntax**
 
 ```javascript
-await zkdb.database('my-db').from('my-collection').fetchOne(query);
+await zkdb.database('my-db').collection('my-collection').findOne(query);
 ```
 
 #### **Parameters**
@@ -26,24 +26,24 @@ await zkdb.database('my-db').from('my-collection').fetchOne(query);
 
 #### **Permissions**
 
-- The `fetchOne` method requires that the user has read permissions for the collection or specific document being queried. If the user lacks these permissions, the method will not return any results.
+- The `findOne` method requires that the user has read permissions for the collection or specific document being queried. If the user lacks these permissions, the method will not return any results.
 
 #### **Example**
 
 ```javascript
-await zkdb.database('my-db').from('my-collection').fetchOne({ name: 'Alice' });
+await zkdb.database('my-db').collection('my-collection').findOne({ name: 'Alice' });
 ```
 
-In this example, `fetchOne` is used to retrieve the first document in `my-collection` within `my-db` where the `name` field is equal to `12`. This operation will only succeed if the user has the appropriate read permissions for `my-collection` or the specific document.
+In this example, `findOne` is used to retrieve the first document in `my-collection` within `my-db` where the `name` field is equal to `12`. This operation will only succeed if the user has the appropriate read permissions for `my-collection` or the specific document.
 
-### **Fetching Multiple Documents: `fetchMany`**
+### **Fetching Multiple Documents: `findMany`**
 
 The `fetchMany` method retrieves multiple documents from the specified collection that match the provided query criteria, with options for pagination.
 
 #### **Syntax**
 
 ```javascript
-await zkdb.database('my-db').from('my-collection').fetchMany(query, options);
+await zkdb.database('my-db').collection('my-collection').findMany (query, options);
 ```
 
 #### **Parameters**
@@ -60,12 +60,12 @@ await zkdb.database('my-db').from('my-collection').fetchMany(query, options);
 
 #### **Permissions**
 
-- The `fetchMany` method requires that the user has read permissions for the collection being queried. If the user does not have the required permissions, the method will not return any results.
+- The `findMany` method requires that the user has read permissions for the collection being queried. If the user does not have the required permissions, the method will not return any results.
 
 #### **Example**
 
 ```javascript
-await zkdb.database('my-db').from('my-collection').fetchMany(
+await zkdb.database('my-db').collection('my-collection').findMany(
   { name: 'Bob' },
   {
     limit: 10,
@@ -74,14 +74,14 @@ await zkdb.database('my-db').from('my-collection').fetchMany(
 );
 ```
 
-In this example, `fetchMany` is used to retrieve up to 12 documents in `my-collection` within `my-db` where the `name` field is equal to `12`. The query skips the first 12 matching documents (due to the `offset` option) and returns the next 12. This operation will only succeed if the user has the necessary read permissions for `my-collection`.
+In this example, `findMany` is used to retrieve up to 12 documents in `my-collection` within `my-db` where the `name` field is equal to `12`. The query skips the first 12 matching documents (due to the `offset` option) and returns the next 12. This operation will only succeed if the user has the necessary read permissions for `my-collection`.
 
 ### **Additional Notes**
 
-- **Error Handling:** Both `fetchOne` and `fetchMany` return promises, so you should handle errors using `.catch()` or `try...catch` blocks to manage any exceptions or errors that occur during the fetch operation.
-- **Performance Considerations:** Using `limit` and `offset` with `fetchMany` can help manage performance by controlling the number of documents retrieved, especially in large datasets.
+- **Error Handling:** Both `findOne` and `findMany` return promises, so you should handle errors using `.catch()` or `try...catch` blocks to manage any exceptions or errors that occur during the fetch operation.
+- **Performance Considerations:** Using `limit` and `offset` with `findMany` can help manage performance by controlling the number of documents retrieved, especially in large datasets.
 - **Permissions Management:** Ensure that your application has the correct permission management logic to allow users to access the necessary collections or documents. Without proper permissions, the fetch operations will not return any data.
 
 ### **Summary**
 
-The `fetchOne` and `fetchMany` methods in zkDatabase provide powerful tools for querying and retrieving data from your databases, provided the user has the necessary permissions. They allow you to specify precise criteria and handle large datasets efficiently, making them ideal for building robust and scalable applications.
+The `findOne` and `findMany` methods in zkDatabase provide powerful tools for querying and retrieving data from your databases, provided the user has the necessary permissions. They allow you to specify precise criteria and handle large datasets efficiently, making them ideal for building robust and scalable applications.

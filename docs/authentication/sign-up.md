@@ -1,5 +1,5 @@
 ---
-sidebar_position: 2
+sidebar_position: 3
 ---
 
 # Sign-Up: Register a New User
@@ -8,7 +8,7 @@ The `signUp` method is used to register a new user with zkDatabase. During sign-
 
 #### Syntax
 ```ts
-await zkdb.auth.signUp(username, email);
+await zkdb.authenticator.signUp(username, email);
 ```
 
 #### Parameters
@@ -20,7 +20,7 @@ await zkdb.auth.signUp(username, email);
 
 #### Example
 ```ts
-await zkdb.auth.signUp('test-name', 'robot@gmail.com');
+await zkdb.authenticator.signUp('test-name', 'robot@gmail.com');
 ```
 
 In this example, the signUp method registers a new user with the username `test-name` and email `robot@gmail.com`. The signer must be set up beforehand to authenticate the sign-up process.

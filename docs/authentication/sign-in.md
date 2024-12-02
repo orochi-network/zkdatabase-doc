@@ -1,5 +1,5 @@
 ---
-sidebar_position: 3
+sidebar_position: 4
 ---
 
 # Sign-In: Authenticate an Existing User
@@ -8,7 +8,7 @@ The `signIn` method is used to authenticate an existing user in zkDatabase. The 
 
 #### Syntax
 ```ts
-await zkdb.auth.signIn(email);
+await zkdb.authenticator.signIn(email);
 ```
 
 #### Parameters
@@ -19,7 +19,7 @@ await zkdb.auth.signIn(email);
 
 #### Example
 ```ts
-await zkdb.auth.signIn('robot@gmail.com');
+await zkdb.authenticator.signIn('robot@gmail.com');
 ```
 
 In this example, the signIn method authenticates the user with the email `robot@gmail`.com. The signer set during initialization will be used to sign the authentication request.

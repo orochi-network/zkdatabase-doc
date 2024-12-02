@@ -1,5 +1,5 @@
 ---
-sidebar_position: 5
+sidebar_position: 6
 ---
 
 # Sign-Out: Log Out the User
@@ -8,7 +8,7 @@ The `signOut` method is used to log out the authenticated user from zkDatabase.
 
 #### Syntax
 ```ts
-await zkdb.auth.signOut();
+await zkdb.authenticator.signOut();
 ```
 
 #### Parameters
@@ -19,7 +19,7 @@ await zkdb.auth.signOut();
 
 #### Example
 ```ts
-await zkdb.auth.signOut();
+await zkdb.authenticator.signOut();
 ```
 
 This example demonstrates how to log out the currently authenticated user from zkDatabase.

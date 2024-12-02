@@ -11,7 +11,7 @@ The `delete` method deletes a document that matches the provided query from a sp
 
 #### Syntax
 ```ts
-await zkdb.database('my-db').from('my-collection').delete(query);
+await zkdb.database('my-db').collection('my-collection').drop(query);
 ```
 
 #### Parameters
@@ -22,7 +22,7 @@ await zkdb.database('my-db').from('my-collection').delete(query);
 
 #### Example
 ```ts
-await zkdb.database('my-db').from('my-collection').delete({ name: 'Alice' });
+await zkdb.database('my-db').collection('my-collection').drop({ name: 'Alice' });
 ```
 
 In this example, the method deletes the document from the `my-collection` collection in the `my-db` database where the `name` field is equal to `Alice`.

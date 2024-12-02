@@ -11,7 +11,7 @@ The `insert` method allows you to add a new document to a collection in your dat
 
 #### Syntax
 ```ts
-await zkdb.database('my-db').from('my-collection').insert(schema);
+await zkdb.database('my-db').collection('my-collection').insert(schema);
 ```
 
 #### Parameters
@@ -27,7 +27,7 @@ const shirt = new TShirt({
   price: UInt64.from(12),
 });
 
-await zkdb.database('my-db').from('my-collection').insert(shirt);
+await zkdb.database('my-db').collection('my-collection').insert(shirt);
 ```
 
 In this example, a new `TShirt` schema is created with the name `Guchi` and a price of `12`. The `insert` method is then called to add this `TShirt` object to the `my-collection` collection in the `my-db` database.
@@ -37,7 +37,7 @@ The `insert` method also supports an optional `permissions` object, allowing you
 
 #### Syntax
 ```ts
-await zkdb.database('my-db').from('my-collection').insert(document, permissions);
+await zkdb.database('my-db').collection('my-collection').insert(document, permissions);
 ```
 
 #### Parameters
@@ -62,7 +62,7 @@ Each sub-object can have the following boolean properties:
 
 #### Example
 ```ts
-await zkdb.database('my-db').from('my-collection').insert(shirt, {
+await zkdb.database('my-db').collection('my-collection').insert(shirt, {
   permissionOwner: {
     read: true,
     write: true,
