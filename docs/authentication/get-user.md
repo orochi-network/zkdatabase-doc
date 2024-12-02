@@ -1,5 +1,5 @@
 ---
-sidebar_position: 4
+sidebar_position: 5
 ---
 
 # Get User Information
@@ -25,7 +25,9 @@ export type ZKDatabaseUser = {
 
 #### Example
 ```ts
-const user = await zkdb.auth.getUser();
+const zkdb = ZKDatabaseClient.connect(connectionURL);
+
+const user = await zkdb.authenticator.getUser();
 if (user) {
   console.log('Logged in user:', user.name, user.email, user.publicKey);
 } else {

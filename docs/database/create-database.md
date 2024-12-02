@@ -2,78 +2,63 @@
 sidebar_position: 1
 ---
 
-# Creating a Database in zkDatabase
+# Create a New ZK Database
 
-Creating a new database in zkDatabase is a two-step process. First, you deploy a smart contract to the blockchain, which will manage the database’s cryptographic state. After the smart contract is successfully deployed and the transaction is confirmed, you register the database with the zkDatabase service by sending the public key and other metadata, such as the database name and Merkle tree height.
+The `create` method initializes a new Zero-Knowledge (ZK) database with the specified configuration. It sets up the database on the server using the provided `merkleHeight`, which determines the height of the Merkle tree used for the database.
 
-## Steps to Create a Database
-1. Deploy the ZK Database Smart Contract to the Blockchain
-2. Register the Database with the zkDatabase Service
+---
 
-## Step 1: Deploy the ZK Database Smart Contract
-
-The first step in creating a database is deploying a smart contract to the blockchain. This contract will manage the database’s cryptographic operations, such as updating the Merkle tree that holds the database state.
-
-#### **Syntax**
-
+### Syntax
 ```ts
-const zkDbPrivateKey = PrivateKey.random(); // Generate a private key for the new database
-
-const tx = await zkdb.fromBlockchain()
-  .deployZKDatabaseSmartContract(merkleHeight, zkDbPrivateKey);
-
-await tx.wait(); // Wait for the transaction to be confirmed on the blockchain
+const success = await zkdb.create(config);
 ```
 
-#### **Parameters**
+---
 
-- **`merkleHeight`** (Number): The height of the Merkle tree that will represent the database's state. A larger Merkle height allows the database to handle more entries, but increases the cost of maintaining the tree.
+### Parameters
 
-- **`zkDbPrivateKey`** (PrivateKey): A private key generated for the new database. The corresponding public key will be used to identify the database in zkDatabase.
+- **`config`**: `ZKDatabaseConfig`  
+  An object specifying the configuration for the new database.
 
-#### **Returns**
+  **`ZKDatabaseConfig` Type Definition**:
+  ```ts
+  export interface ZKDatabaseConfig {
+    merkleHeight: number;
+  }
+  ```
 
-- A transaction object (`tx`) representing the deployment of the ZK Database Smart Contract on the blockchain.
+  - **`merkleHeight`**: `number`  
+    The height of the Merkle tree for the database. This impacts the size and efficiency of the cryptographic proof structure.
 
-#### **Example**
+---
 
+### Returns
+
+- **`Promise<boolean>`**  
+  - Returns `true` if the database is successfully created.
+  - Returns `false` or throws an error if the creation fails.
+
+---
+
+### Example
+
+#### **Creating a New Database**
 ```ts
-const zkDbPrivateKey = PrivateKey.random();
+const zkdb = ZKDatabaseClient.connect(connectionURL);
 
-const tx = await zkdb.fromBlockchain()
-  .deployZKDatabaseSmartContract(18, zkDbPrivateKey);
+const success = await zkdb.create({ merkleHeight: 16 });
 
-await tx.wait(); // Wait for the transaction to be confirmed
+if (success) {
+  console.log('Database created successfully!');
+} else {
+  console.log('Failed to create the database.');
+}
 ```
 
-In this example, a private key is generated for the new database, and the ZK Database Smart Contract is deployed to the blockchain with a Merkle tree height of `18`. The `tx.wait()` method is used to wait for the blockchain transaction to be confirmed.
+---
 
-## Step 2: Register the Database with zkDatabase Service
+### Notes
 
-After deploying the smart contract and receiving confirmation from the blockchain, you need to register the database with the zkDatabase service. This step involves sending the public key derived from the private key used in the contract deployment, along with the database name and Merkle tree height.
+- The `merkleHeight` parameter directly affects the structure of the Merkle tree, which is fundamental to the database's cryptographic proof system.
 
-#### **Syntax**
-
-```ts
-await zkdb.fromGlobal()
-  .createDatabase(DB_NAME, merkleHeight, PublicKey.fromPrivateKey(zkDbPrivateKey));
-```
-
-#### **Parameters**
-
-- `DB_NAME` (String): The name of the database you are creating.
-- `merkleHeight` (Number): The height of the Merkle tree (same as in the contract deployment step).
-- `PublicKey`: The public key derived from the private key used in the deployment. This public key will be used to authenticate the database in zkDatabase.
-
-#### **Returns**
-
-- A promise that resolves when the database has been successfully created in the zkDatabase service.
-
-#### **Example**
-
-```ts
-await zkdb.fromGlobal()
-  .createDatabase('my-database', 18, PublicKey.fromPrivateKey(zkDbPrivateKey));
-```
-
-In this example, the database is registered with the zkDatabase service under the name `my-database`. The Merkle tree height is set to `18`, and the public key is derived from the private key that was used during the smart contract deployment.
+**Ensure that the server supports the specified `merkleHeight` to avoid configuration errors.**

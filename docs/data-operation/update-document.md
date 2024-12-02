@@ -11,7 +11,7 @@ The `update` method is used to update a document in a collection by providing th
 
 #### Syntax
 ```ts
-await zkdb.database('my-db').from('my-collection').update(document, updates);
+await zkdb.database('my-db').collection('my-collection').update(document, updates);
 ```
 
 #### Parameters
@@ -27,7 +27,7 @@ await zkdb.database('my-db').from('my-collection').update(document, updates);
 const developer = new Developer({ name: 'Anton', age: UInt32.from(30) });
 
 // Update the developer's age from 30 to 29
-await zkdb.database('my-db').from('my-collection').update(developer, { age: 29 });
+await zkdb.database('my-db').collection('my-collection').update(developer, { age: 29 });
 ```
 
 In this example, the `update` method updates the `age` field of the document identified by `developer` in the `my-collection` collection within the `my-db` database. The developer’s age is changed from `30` to `29`.

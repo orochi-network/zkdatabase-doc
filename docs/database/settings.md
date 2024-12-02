@@ -2,40 +2,51 @@
 sidebar_position: 2
 ---
 
-# Settings
+# Get Database Settings
 
-In zkDatabase, the `getSettings` method allows you to retrieve important settings related to a specific database, including the public key and Merkle tree height. These settings are crucial for understanding the cryptographic configuration of the database.
+The `setting` method retrieves the configuration and metadata of the current database, including cryptographic and ownership details.
 
-## getSettings: Retrieving Database Configuration
+---
 
-The `getSettings` method is used to fetch the current configuration settings of a database. This includes the public key associated with the database and the Merkle tree height, which defines the capacity and scalability of the database.
-
-#### **Syntax**
-
+### Syntax
 ```ts
-const settings = await zkdb.database('my-db').getSettings();
+const settings = await zkdb.setting();
 ```
 
-#### **Returns**
+---
 
-- A promise that resolves to a `DatabaseSettings` object containing the database's public key and Merkle tree height.
+### Returns
 
-**DatabaseSettings Type**
+- **`Promise<DatabaseSetting>`**  
+  An object containing the current database settings.
 
+  **`DatabaseSetting` Type Definition**:
+  ```ts
+  export type DatabaseSetting = {
+    publicKey: string;
+    merkleHeight: number;
+    databaseOwner: string;
+  };
+  ```
+
+  - **`publicKey`**: `string`  
+    The public key associated with the database for cryptographic operations.
+  - **`merkleHeight`**: `number`  
+    The height of the Merkle tree used in the database, which determines the structure of cryptographic proofs.
+  - **`databaseOwner`**: `string`  
+    The owner of the database, identified by their public key or unique identifier.
+
+---
+
+### Example
+
+#### **Retrieving Database Settings**
 ```ts
-export type DatabaseSettings = {
-  publicKey: string;     // The public key associated with the database
-  merkleHeight: number;  // The height of the Merkle tree representing the database's state
-};
+const settings = await zkdb.setting();
+
+console.log('Public Key:', settings.publicKey);
+console.log('Merkle Height:', settings.merkleHeight);
+console.log('Database Owner:', settings.databaseOwner);
 ```
 
-#### **Example**
-
-```ts
-const settings = await zkdb.database('my-db').getSettings();
-
-console.log('Database Public Key:', settings.publicKey);
-console.log('Merkle Tree Height:', settings.merkleHeight);
-```
-
-In this example, the `getSettings` method retrieves the public key and Merkle tree height for the database `my-db`, and logs them to the console.
+---

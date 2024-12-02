@@ -33,9 +33,18 @@ This command initializes your project with the necessary dependencies to interac
 To start using zkDatabase, you’ll first need to configure your connection settings and initialize the database in your application. Here’s how:
 
 ```ts
-import {zkdb} from 'zkdb';
+import { ZKDatabaseClient } from 'zkdb';
 
-await zkdb.auth.signIn('test@gmail.com');
+const zkdb = await ZKDatabaseClient.connect(ZKDB_URL);
+
+const fakeUser = {
+  username: faker.internet.username().toLowerCase(),
+  email: faker.internet.email().toLowerCase(),
+};
+
+await zkdb.authenticator.signUp(fakeUser.username, fakeUser.email);
+
+await zkdb.authenticator.signIn();
 ```
 
 This code snippet demonstrates how to set up a connection to zkDatabase, configure Zero-Knowledge Proof options, and initialize a connection to your zkDatabase service.
